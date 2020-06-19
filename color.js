@@ -8,6 +8,16 @@ var Links  = {
     }
   }
 }
+var Number  = {
+  setColor:function(color){
+    var alist = document.querySelectorAll('ol')
+    var i = 0;
+    while(i < alist.length){
+      alist[i].style.color = color;
+      i = i + 1;
+    }
+  }
+}
 var Body = {
   setColor:function (color){
     document.querySelector('body').style.color = color;
@@ -16,6 +26,7 @@ var Body = {
     document.querySelector('body').style.backgroundColor = color;
   }
 }
+
 function nightDayHandler(self){
   var target = document.querySelector('body');
   if(self.value === 'night'){
@@ -24,11 +35,13 @@ function nightDayHandler(self){
     self.value = 'day';
 
     Links.setColor('pink');
+    Number.setColor('pink');
   } else {
     Body.setBackgroundColor('beige');
     Body.setColor('black');
     self.value = 'night';
 
     Links.setColor('black');
+    Number.setColor('black');
   }
 }
